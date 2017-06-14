@@ -1,7 +1,13 @@
-.App {
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css?family=Fauna+One|Oxygen:400,300,700");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
+/*.App {
+  text-align: center;
+}*/
+
+.App {
+  font-family: Oxygen, Helvetica, Arial, sans-serif; }
+/*
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -22,4 +28,4 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
+*/
