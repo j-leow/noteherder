@@ -12,15 +12,32 @@ class NoteForm extends Component {
       noteTexts: [],
     }
 
-    this.updateNote = this.updateNote.bind(this)
+    this.updateTitle = this.updateTitle.bind(this)
+    this.updateText = this.updateText.bind(this)
+    this.deleteNote = this.deleteNote.bind(this)
   }
 
-  updateNote(ev) {
+  updateTitle(ev) {
     this.setState({
       noteTitle: ev.target.value,
-      noteText: ev.target.value
     })
   }
+
+  updateText(ev) {
+    this.setState({
+      noteText: ev.target.value,
+    })
+  }
+
+  deleteNote(ev) {
+    this.setState(
+      {
+        noteTitle: '',
+        noteText: ''
+      }
+    )
+  }
+
 
   render() {
    return (
@@ -32,7 +49,7 @@ class NoteForm extends Component {
               name="title" 
               placeholder="Title your note" 
               value={this.state.noteTitle}
-              onChange={this.updateNote} />
+              onChange={this.updateTitle} />
           </p>
           <p>
             <textarea 
@@ -40,11 +57,14 @@ class NoteForm extends Component {
               cols="30" 
               rows="10" 
               placeholder="Just start typing..."
-              onChange={this.updateNote}>
+              onChange={this.updateText}>
             </textarea>
           </p>
           <button className="button" onClick={this.addNote}>
-            Submit
+            <i className="fa fa-plus-square-o" aria-hidden="true"></i>
+          </button>
+          <button className="delete" onClick={this.deleteNote}>
+            <i className="fa fa-trash-o" aria-hidden="true"></i>
           </button>
         </form>
       </div>
