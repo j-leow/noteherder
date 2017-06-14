@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import quill from './quill.svg'
 import './css/Sidebar.css'
 
