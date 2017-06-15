@@ -12,6 +12,7 @@ class NoteForm extends Component {
               type="text"
               name="title"
               placeholder="Title your note"
+              
             />
           </p>
           <p>
