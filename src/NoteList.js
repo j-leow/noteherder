@@ -16,17 +16,20 @@ const noteData = [
   },
 ]
 
-const NoteList = () => {
+const NoteList = (props) => {
   return (
     <div className="NoteList">
       <h3>Notes</h3>
-      
+
           <div className="note">
             <ul id="notes">
+            { Object.keys(props.notes).map(noteId) => {
+              return <li key={noteId}>{noteId}</li>
+            }}
             {noteData.map((note, i) => <NoteLink key={i} note={note} />)}
             </ul>
           </div>
-        
+
     </div>
   )
 }
