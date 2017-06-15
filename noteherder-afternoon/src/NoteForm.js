@@ -4,8 +4,27 @@ import './NoteForm.css'
 
 class NoteForm extends Component {
   render() {
-    return <p>NOTE FORM!</p>
+    return (
+      <div className="NoteForm">
+        <form>
+          <p>
+            <input
+              type="text"
+              name="title"
+              placeholder="Title your note"
+            />
+          </p>
+          <p>
+            <textarea
+              name="body"
+              placeholder="Just start typing..."
+          ></textarea>
+          </p>
+        </form>
+      </div>
+    )
   }
 }
+
 
 export default NoteForm
