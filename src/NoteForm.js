@@ -37,18 +37,7 @@ class NoteForm extends Component {
       }
     )
   }
-
-  addNote(ev) {
-    const state = {...this.state}
-    const note = {
-      time: new Date(),
-      noteTitle:
-    }
-
-    })
-    
-  }
-
+ 
   render() {
    return (
     <div className="NoteForm">
