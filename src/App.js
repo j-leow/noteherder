@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './css/App.css';
 
+import './css/App.css';
 import Main from './Main'
 
 class App extends Component {
@@ -8,17 +8,17 @@ class App extends Component {
     super()
 
     this.state = {
-      'note-1': {
-        id: 'note-1',
-        title: 'Thoughts on React',
-        body: 'React is pretty nifty. Declarative FTW!',
-
-      },
-
-      'note-2': {
-        id: 'note-2',
-        title: 'Thoughts on React',
-        body: 'React is pretty nifty. Declarative FTW!',
+      notes: {
+        'note-1': {
+          id: 'note-1',
+          title: 'Thoughts on React',
+          body: 'React is pretty nifty. Declarative FTW! 🎸',
+        },
+        'note-2': {
+          id: 'note-2',
+          title: 'State and props?',
+          body: 'Wat',
+        },
       },
     }
   }
@@ -26,7 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Main notes={this.state.notes}/>
+        <Main notes={this.state.notes} />
       </div>
     );
   }
