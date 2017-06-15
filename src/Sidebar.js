@@ -1,5 +1,7 @@
 import React from 'react'
 import quill from './quill.svg'
+import newIcon from './new.png'
+import newHover from './new-hover.png'
 import './css/Sidebar.css'
 
 const Sidebar = () => {
@@ -9,11 +11,11 @@ const Sidebar = () => {
         <img src={quill} alt="Noteherder" />
       </div>
       <button className="new-note">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1152887/new-hover.png" alt="New note" />>
-        <img className="outline" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1152887/new.png" alt="New note" />
+        <img src={newHover} alt="New note" />>
+        <img className="outline" src={newIcon} alt="New note" />
       </button>
     </div>
   )
 }
 
-export default Sidebar 
+export default Sidebar
