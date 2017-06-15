@@ -20,13 +20,13 @@ const NoteList = () => {
   return (
     <div className="NoteList">
       <h3>Notes</h3>
-      
+
           <div className="note">
             <ul id="notes">
             {noteData.map((note, i) => <NoteLink key={i} note={note} />)}
             </ul>
           </div>
-        
+
     </div>
   )
 }
