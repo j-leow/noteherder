@@ -47,10 +47,10 @@ ul#notes > li * {
 ul#notes li .note {
   border-top: 1px solid #eee;
   margin: 0 2rem;
-  padding: 1rem 4px; 
+  padding: 1rem 4px;
 }
 ul#notes li:first-of-type .note {
-  border-top: none; 
+  border-top: none;
 }
 ul#notes li:hover {
   background-color: #008BF8;

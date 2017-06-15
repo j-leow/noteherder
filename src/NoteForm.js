@@ -37,24 +37,24 @@ class NoteForm extends Component {
       }
     )
   }
- 
+
   render() {
    return (
     <div className="NoteForm">
         <form>
           <p>
-            <input 
-              type="text" 
-              name="title" 
-              placeholder="Title your note" 
+            <input
+              type="text"
+              name="title"
+              placeholder="Title your note"
               value={this.state.noteTitle}
               onChange={this.updateTitle} />
           </p>
           <p>
-            <textarea 
-              name="body" 
-              cols="30" 
-              rows="10" 
+            <textarea
+              name="body"
+              cols="30"
+              rows="10"
               placeholder="Just start typing..."
               onChange={this.updateText}>
             </textarea>
