@@ -8,25 +8,23 @@ class App extends Component {
     super()
 
     this.state = {
-      notes: {
-        'note-1': {
-          id: 'note-1',
-          title: 'Thoughts on React',
-          body: 'React is pretty nifty. Declarative FTW! 🎸',
-        },
-        'note-2': {
-          id: 'note-2',
-          title: 'State and props?',
-          body: 'Wat',
-        },
-      },
+      notes: {} 
     }
+  }
+
+  saveNote = (note) => {
+    if(!note.id) {
+      note.id = `note-${Date.now()}` //This will give the note an ID
+    }
+    const notes = {...this.state.notes} //Spread syntax is for arrays but Babel allows us to use it on objs as well. You can use it in React.
+    notes[note.id] = note
+    this.setState({ notes })   //Destructuring argument
   }
 
   render() {
     return (
       <div className="App">
-        <Main notes={this.state.notes} />
+        <Main notes={this.state.notes} saveNote={this.saveNote}/>
       </div>
     );
   }
