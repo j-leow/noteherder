@@ -24,7 +24,7 @@ class NoteForm extends Component {
     note[ev.target.name] = ev.target.value
     this.setState(
       { note },
-      () =>   this.props.saveNote(this.state.note)
+      () =>  this.props.saveNote(this.state.note)
     )
   }
 

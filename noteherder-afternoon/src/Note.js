@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Note = ({ note }) => {
+const Note = ({ note, showNote, deleteNote }) => {
 
   return (
     <li>
-      <div className="note" onClick={(ev) => props.showNote(props.note)}>
+      <div className="note" onClick={(ev) => showNote(note)}>
         <div className="note-title">
           {note.title}
         </div>
@@ -13,12 +13,6 @@ const Note = ({ note }) => {
             {note.body}
           </p>
         </div>
-        <button type="button" onClick={(ev) => props.deleteNote(props.note)}>
-        <i
-          className="fa fa-trash-o"
-          aria-hidden="true"
-        ></i>
-        </button>
       </div>
     </li>
   )
