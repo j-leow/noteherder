@@ -8,9 +8,8 @@ class App extends Component {
     super()
 
     this.state = {
-      notes: {
-
-        },
+      notes: {},
+      currentNote: {},
       }
   }
 
@@ -23,10 +22,27 @@ class App extends Component {
     this.setState({ notes })
   }
 
+  showNote = (currentNote) => {
+    this.setState({ currentNote })
+
+  }
+
+  deleteNote = (note) => {
+    const notes = {...this.state.notes}
+    notes[note.id].delete()
+    this.setState({ notes })
+  }
+
   render() {
     return (
       <div className="App">
-        <Main notes={this.state.notes} saveNote={this.saveNote}/>
+        <Main
+          notes={this.state.notes}
+          currentNote={this.state.currentNote}
+          showNote={this.showNote}
+          saveNote={this.saveNote}
+          deleteNote={this.deleteNote}
+        />
       </div>
     );
   }
