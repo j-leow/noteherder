@@ -3,7 +3,7 @@ import Note from './Note.js'
 
 import './NoteList.css'
 
-const NoteList = ( { notes, showNote }) => {
+const NoteList = ( { notes, showNote, deleteNote }) => {
   return (
     <div className="NoteList">
       <h3>Notes</h3>
@@ -14,6 +14,7 @@ const NoteList = ( { notes, showNote }) => {
             note={notes[noteId]}
             key={noteId}
             showNote={showNote}
+            deleteNote={deleteNote}
             />
           )
         })}

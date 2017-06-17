@@ -1,6 +1,10 @@
 import React from 'react'
+import './Note.css'
 
 const Note = ({ note, showNote, deleteNote }) => {
+  const userDelete = (ev) => {
+    deleteNote(note)
+  }
 
   return (
     <li>
@@ -12,6 +16,9 @@ const Note = ({ note, showNote, deleteNote }) => {
           <p>
             {note.body}
           </p>
+        </div>
+        <div>
+          <button onClick={userDelete}><i class="fa fa-trash-o" aria-hidden="true"></i></button>
         </div>
       </div>
     </li>
