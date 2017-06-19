@@ -16,7 +16,7 @@ const Main = (props) => {
         deleteNote={props.deleteNote}
       />
       <NoteForm
-        saveNote={props.saveNote}
+        {...props}
       />
     </div>
   )

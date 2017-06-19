@@ -46,19 +46,25 @@ class App extends Component {
     this.setState({ notes })
   }
 
-  showNote = (currentNote) => {
-    this.setState({ currentNote })
-  }
-
-  deleteNote = (note) => {
-    console.log(note);
+  removeNote = (note) => {
     const notes = {...this.state.notes}
-    if (!notes[note.id]) {
-      return
-    }
-    delete notes[note.id]
+    notes[note.id] = null
     this.setState({ notes })
   }
+
+  // showNote = (currentNote) => {
+  //   this.setState({ currentNote })
+  // }
+
+  // deleteNote = (note) => {
+  //   console.log(note);
+  //   const notes = {...this.state.notes}
+  //   if (!notes[note.id]) {
+  //     return
+  //   }
+  //   delete notes[note.id]
+  //   this.setState({ notes })
+  // }
 
   signIn = () => {
     return this.state.uid
@@ -77,15 +83,17 @@ class App extends Component {
   }
 
   renderMain = () => {
+    const actions = {
+      saveNote: this.saveNote,
+      removeNote: this.removeNote,
+    }
+
     return (
       <div>
         <SignOut signOut={this.signOut} />
         <Main
           notes={this.state.notes}
-          currentNote={this.state.currentNote}
-          showNote={this.showNote}
-          saveNote={this.saveNote}
-          deleteNote={this.deleteNote}
+          {...actions}
         />
       </div>
     )
