@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 
 import './App.css'
 import Main from './Main'
-import base, { auth } from './base'
 import SignIn from './SignIn'
 import SignOut from './SignOut'
+import base, { auth } from './base'
 
 class App extends Component {
   constructor() {
@@ -27,7 +27,7 @@ class App extends Component {
     )
   }
 
-  syncNotes= () => {
+  syncNotes = () => {
     base.syncState(
       `${this.state.uid}/notes`,
       {
@@ -38,8 +38,8 @@ class App extends Component {
   }
 
   saveNote = (note) => {
-    if(!note.id) {
-      note.id=`note-${Date.now()}`
+    if (!note.id) {
+      note.id = `note-${Date.now()}`
     }
     const notes = {...this.state.notes}
     notes[note.id] = note
@@ -52,51 +52,38 @@ class App extends Component {
     this.setState({ notes })
   }
 
-  // showNote = (currentNote) => {
-  //   this.setState({ currentNote })
-  // }
-
-  // deleteNote = (note) => {
-  //   console.log(note);
-  //   const notes = {...this.state.notes}
-  //   if (!notes[note.id]) {
-  //     return
-  //   }
-  //   delete notes[note.id]
-  //   this.setState({ notes })
-  // }
-
-  signIn = () => {
+  signedIn = () => {
     return this.state.uid
   }
 
   authHandler = (userData) => {
-     this
-     .setState({ uid: userData.uid },
-     this.syncNotes)
+    this.setState(
+      { uid: userData.uid },
+      this.syncNotes
+    )
   }
 
   signOut = () => {
     auth
       .signOut()
-      .then(() => this.setState({ uid: null}))
+      .then(() => this.setState({ uid: null }))
   }
 
   setCurrentNoteId = (noteId) => {
     this.setState({ currentNoteId: noteId })
+    // TODO: Make this work
   }
 
   renderMain = () => {
     const noteData = {
-      note: this.state.notes,
-      currentNoteId: this.state.currentNoteId
+      notes: this.state.notes,
+      currentNoteId: this.state.currentNoteId,
     }
     const actions = {
       saveNote: this.saveNote,
       removeNote: this.removeNote,
       setCurrentNoteId: this.setCurrentNoteId,
     }
-
     return (
       <div>
         <SignOut signOut={this.signOut} />
@@ -111,7 +98,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        { this.signIn() ? this.renderMain() : <SignIn />}
+        { this.signedIn() ? this.renderMain() : <SignIn /> }
       </div>
     );
   }

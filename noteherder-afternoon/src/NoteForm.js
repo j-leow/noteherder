@@ -12,7 +12,7 @@ class NoteForm extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    
+    // TODO: ???
   }
 
   blankNote = () => {
@@ -28,14 +28,13 @@ class NoteForm extends Component {
     note[ev.target.name] = ev.target.value
     this.setState(
       { note },
-      () =>  this.props.saveNote(this.state.note)
+      () => this.props.saveNote(this.state.note)
     )
   }
 
   handleSubmit = (ev) => {
     ev.preventDefault()
-    this.setState({ note: this.blankNote()})
-
+    this.setState({ note: this.blankNote() })
   }
 
   handleRemove = (ev) => {
@@ -61,11 +60,9 @@ class NoteForm extends Component {
               placeholder="Just start typing..."
               onChange={this.handleChanges}
               value={this.state.note.body}
-          ></textarea>
+            ></textarea>
           </p>
-          <button type="submit">
-            Save and New
-          </button>
+          <button type="submit">Save and new</button>
           <button onClick={this.handleRemove}>
             <i className="fa fa-trash-o"></i>
           </button>
@@ -74,6 +71,5 @@ class NoteForm extends Component {
     )
   }
 }
-
 
 export default NoteForm

@@ -1,11 +1,6 @@
 import React from 'react'
-import './Note.css'
 
 const Note = ({ note, setCurrentNoteId }) => {
-  // const userDelete = (ev) => {
-  //   deleteNote(note)
-  // }
-
   return (
     <a onClick={() => setCurrentNoteId(note.id)}>
       <li>
