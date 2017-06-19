@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import './App.css';
+import './App.css'
 import Main from './Main'
-import base from './base'
+import base, { auth } from './base'
 import SignIn from './SignIn'
 import SignOut from './SignOut'
 
@@ -13,6 +13,7 @@ class App extends Component {
     this.state = {
       notes: {},
       currentNote: {},
+      uid: null,
     }
   }
 
@@ -49,14 +50,24 @@ class App extends Component {
     this.setState({ notes })
   }
 
-  signedIn = () => {
-    return false
+  signIn = () => {
+    return this.state.uid
+  }
+
+  authHandler = (userData) => {
+     this.setState({ uid: userData.uid })
+  }
+
+  signOut = () => {
+    auth
+      .signOut()
+      .then(() => this.setState({ uid: null}))
   }
 
   renderMain = () => {
     return (
       <div>
-        <SignOut />
+        <SignOut signOut={this.signOut} />
         <Main
           notes={this.state.notes}
           currentNote={this.state.currentNote}
@@ -71,7 +82,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        { this.signedIn() ? this.renderMain() : <SignIn />}
+        { this.signIn() ? this.renderMain() : <SignIn authHandler={this.authHandler} />}
       </div>
     );
   }

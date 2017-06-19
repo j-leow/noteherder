@@ -18,7 +18,7 @@ const Note = ({ note, showNote, deleteNote }) => {
           </p>
         </div>
         <div>
-          <button onClick={userDelete}><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+          <button onClick={userDelete}><i className="fa fa-trash-o" aria-hidden="true"></i></button>
         </div>
       </div>
     </li>
