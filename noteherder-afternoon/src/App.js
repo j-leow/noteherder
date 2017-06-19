@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Main from './Main'
 import base from './base'
+import SignIn from './SignIn'
+import SignOut from './SignOut'
 
 class App extends Component {
   constructor() {
@@ -14,14 +16,14 @@ class App extends Component {
     }
   }
 
-componentWillMount() {
-  base.syncState(
-    'notes', {
-      context: this,
-      state: 'notes',
-    }
-  )
-}
+  componentWillMount() {
+    base.syncState(
+      'notes', {
+        context: this,
+        state: 'notes',
+      }
+    )
+  }
 
   saveNote = (note) => {
     if(!note.id) {
@@ -47,9 +49,14 @@ componentWillMount() {
     this.setState({ notes })
   }
 
-  render() {
+  signedIn = () => {
+    return false
+  }
+
+  renderMain = () => {
     return (
-      <div className="App">
+      <div>
+        <SignOut />
         <Main
           notes={this.state.notes}
           currentNote={this.state.currentNote}
@@ -57,6 +64,14 @@ componentWillMount() {
           saveNote={this.saveNote}
           deleteNote={this.deleteNote}
         />
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <div className="App">
+        { this.signedIn() ? this.renderMain() : <SignIn />}
       </div>
     );
   }

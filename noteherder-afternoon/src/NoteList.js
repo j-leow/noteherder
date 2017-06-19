@@ -1,5 +1,5 @@
 import React from 'react'
-import Note from './Note.js'
+import Note from './Note'
 
 import './NoteList.css'
 
