@@ -11,8 +11,11 @@ class NoteForm extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    // TODO: ???
+  componentWillReceiveProps = (nextProps) => {
+    const newId = nextProps.currentNoteId
+    if (newId !== this.state.note.id) {
+      this.setState({ note: nextProps.notes[newId]})
+    }
   }
 
   blankNote = () => {

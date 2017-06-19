@@ -40,6 +40,7 @@ class App extends Component {
   saveNote = (note) => {
     if (!note.id) {
       note.id = `note-${Date.now()}`
+      this.setCurrentNoteId(note.id)
     }
     const notes = {...this.state.notes}
     notes[note.id] = note
@@ -71,7 +72,7 @@ class App extends Component {
 
   setCurrentNoteId = (noteId) => {
     this.setState({ currentNoteId: noteId })
-    // TODO: Make this work
+
   }
 
   renderMain = () => {
