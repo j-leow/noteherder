@@ -12,8 +12,7 @@ const Main = (props) => {
       <Sidebar />
       <NoteList
         notes={props.notes}
-        showNote={props.showNote}
-        deleteNote={props.deleteNote}
+        setCurrentNoteId={props.setCurrentNoteId}
       />
       <NoteForm
         {...props}
