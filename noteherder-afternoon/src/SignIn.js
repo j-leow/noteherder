@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './SignIn.css'
-import { auth, githubProvider } from './base'
+import { auth, githubProvider, googleProvider } from './base'
 
 const SignIn = () => {
   const authenticate = () => {
@@ -12,13 +12,27 @@ const SignIn = () => {
     // })
   }
 
+  const authenticateGoogle = () => {
+    auth
+    .signInWithPopup(googleProvider)
+  }
+
   return (
-    <button
-      className="SignIn"
-      onClick={authenticate}
-    >
-      Sign In With GitHub
-    </button>
+    <div className="signin">
+      <button
+        className="SignIn"
+        onClick={authenticate}
+      >
+        Sign In With GitHub
+      </button>
+
+      <button
+        className="SignIn"
+        onClick={authenticateGoogle}
+      >
+        Sign In With Google
+      </button>
+    </div>
   )
 }
 

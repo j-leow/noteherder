@@ -14,9 +14,7 @@ const Sidebar = (props) => {
       <button className="new-note">
         <img src={newHover} alt="New note" />
         <img
-          onClick={() => props
-            .saveNote
-              ({id: null, title: '', body: '',})}
+          onClick={() => props.saveNote({id: null, title: '', body: '',})}
           className="outline"
           src={newIcon} alt="New note" />
       </button>
