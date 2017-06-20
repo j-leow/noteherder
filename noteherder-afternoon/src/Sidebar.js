@@ -5,7 +5,7 @@ import quill from './quill.svg'
 import newHover from './new-hover.png'
 import newIcon from './new.png'
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   return (
     <nav className="Sidebar">
       <div className="logo">
@@ -13,7 +13,12 @@ const Sidebar = () => {
       </div>
       <button className="new-note">
         <img src={newHover} alt="New note" />
-        <img className="outline" src={newIcon} alt="New note" />
+        <img
+          onClick={() => props
+            .saveNote
+              ({id: null, title: '', body: '',})}
+          className="outline"
+          src={newIcon} alt="New note" />
       </button>
     </nav>
   )
